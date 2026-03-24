@@ -1,63 +1,38 @@
-# Proyecto Final – Hito 3 Backend
+# Hito 3 - Desarrollo Backend
 
-API REST desarrollada en Node.js, Express y PostgreSQL para gestionar usuarios, autenticación y publicaciones.
+Este proyecto contiene el backend del Marketplace para el Hito 3.
 
-## Requisitos
+## Tecnologías
 
-- Node.js 18+
-- npm
-- Base de datos PostgreSQL
-
-## Instalación
-
-```bash
-npm install
-```
-
-Configura las variables de entorno (por ejemplo en un archivo `.env`):
-
-- `DB_HOST`
-- `DB_PORT`
-- `DB_USER`
-- `DB_PASSWORD`
-- `DB_NAME`
-- `JWT_SECRET`
+- Node.js + Express
+- PostgreSQL (cliente `pg`)
+- JSON Web Tokens (`jsonwebtoken`)
+- CORS
+- Jest + Supertest para pruebas
 
 ## Scripts
 
+- `npm run dev`: inicia la API en modo desarrollo.
+- `npm test`: ejecuta los tests con Jest y Supertest.
+
+## Configuración
+
+1. Copia el archivo `.env.example` a `.env` y ajusta las variables de entorno.
+2. Crea la base de datos en PostgreSQL y ejecuta `script.sql`.
+3. Ejecuta `npm install` para instalar las dependencias.
+
+## Ejecución
+
 ```bash
-npm test       # Ejecuta los tests con Jest
-npm start      # Inicia la API en producción
-npm run dev    # Inicia la API en modo desarrollo (si está configurado)
+npm run dev
 ```
 
-## Endpoints principales
+La API quedará disponible en `http://localhost:4000`.
 
-- Autenticación
-  - `POST /api/auth/register`
-  - `POST /api/auth/login`
+## Pruebas
 
-- Usuarios
-  - `GET /api/users`
-  - `GET /api/users/:id`
+```bash
+npm test
+```
 
-- Posts
-  - `GET /api/posts`
-  - `POST /api/posts`
-  - `PUT /api/posts/:id`
-  - `DELETE /api/posts/:id`
-
-- Favoritos
-  - `GET /api/favorites`
-  - `POST /api/favorites`
-  - `DELETE /api/favorites/:id`
-
-(La ruta base y el detalle de cada endpoint dependen de la configuración en `src/app.js` y los archivos de rutas en `src/routes/`.)
-
-## Base de datos
-
-En `script.sql` se encuentra el script para crear la estructura inicial de la base de datos.
-
-## Tests
-
-Los tests se encuentran en la carpeta `tests/`.
+Los tests cubren códigos de estado de varias rutas de la API REST según la rúbrica del Hito 3.
